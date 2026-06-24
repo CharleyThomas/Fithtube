@@ -1,0 +1,42 @@
+Copyright (c) 2026 Charley Thomas
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, subject to the following conditions:
+
+1. The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+
+2. ALTERED VERSIONS, NAMING, AND REDIRECTION RESTRICTIONS:
+   Any fork, clone, redistribution, or modification of this software that:
+   - Contains alterations to the original source code, OR
+   - Is packaged, bundled, or distributed alongside third-party files,
+     copyrighted material, or external software data,
+   
+   MUST comply with the following strict conditions:
+   
+   a) BRANDING: It MUST NOT use the project name "Fithtube", any variation or 
+      extension of "Fithtube", or the username/identity of the original author 
+      in its title, branding, user interface, or store listings. It must be entirely 
+      rebranded under a completely unique and distinct name.
+      
+   b) MANDATORY SOURCE ATTRIBUTION: The distribution documentation (e.g., the README file, 
+      associated website, or release hosting page) and the application's "About" or 
+      "Credits" interface section MUST prominently display a visible, clear link pointing 
+      back to the official, unaltered source repository at: 
+      https://github.com/CharleyThomas/Fithtube
+      
+      The attribution text must clearly state: 
+      "This project is an altered variant based on the original ecosystem found at 
+      https://github.com/CharleyThomas/Fithtube. The original author 
+      is not responsible for, associated with, or endorsing this modified distribution."
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
