@@ -1,0 +1,75 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: devkitpro/devkitarm
+    
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+
+    # 1. Build the main production app
+    - name: Build Main App
+      run: |
+        make clean
+        make
+    
+    # Save main app files securely before clearing the workspace
+    - name: Save Main App Files
+      run: |
+        cp FourthTube.cia Better_FourthTube.cia
+        cp Better_FourthTube.3dsx main_app_backup.3dsx
+
+    # Clean intermediate object files safely
+    - name: Clean Build Space
+      run: make clean
+
+    # 2. Build the Sandbox safely by swapping just the main file
+    - name: Build Test Sandbox
+      run: |
+        mv source/main.cpp main_bak.cpp
+        cp test/source/main.cpp source/main.cpp
+        make clean
+        make
+        mv FourthTube.cia test.cia
+        rm -f Better_FourthTube.3dsx
+        rm source/main.cpp
+        mv main_bak.cpp source/main.cpp
+      continue-on-error: true
+
+    # Restore the backup name for uploading
+    - name: Restore Main App 3dsx Name
+      run: mv main_app_backup.3dsx Better_FourthTube.3dsx
+
+    # 3. Upload binary as an artifact (Available inside the Action run history)
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: Build-${{ github.run_number }}
+        path: |
+          Better_FourthTube.cia
+          Better_FourthTube.3dsx
+          test.cia
+
+    # 4. Automatically push to a rolling "Dev" Pre-release on your main page
+    - name: Update Dev Pre-Release
+      uses: softprops/action-gh-release@v2
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      with:
+        tag_name: "latest-dev"
+        name: "Dev Build"
+        draft: false
+        prerelease: true
+        files: |
+          Better_FourthTube.cia
+          Better_FourthTube.3dsx
+          test.cia
