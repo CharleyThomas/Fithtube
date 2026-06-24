@@ -1,0 +1,15 @@
+# devkitPro / 3DS build artifacts
+*.o
+*.d
+*.elf
+*.vsh
+*.gsh
+
+# Final console binaries (We build these fresh via Actions or locally)
+*.3dsx
+*.smdh
+*.cia
+
+# OS specific temporary files
+.DS_Store
+Thumbs.db
